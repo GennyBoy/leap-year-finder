@@ -17,3 +17,8 @@ test("return the next leap year", (t) => {
 test("return the current year if it is a leap year", (t) => {
   assert.strictEqual(getNextLeapYear(2004), 2004);
 });
+
+test("return the next leap year from current year if year is not specified", (t) => {
+  const nextLeapYear = getNextLeapYear(new Date().getFullYear());
+  assert.strictEqual(getNextLeapYear(), nextLeapYear);
+});

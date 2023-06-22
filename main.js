@@ -9,7 +9,7 @@ const isCurrentYearLeap = () => {
 };
 
 const getNextLeapYear = (year) => {
-  let nextLeapYear = year;
+  let nextLeapYear = year || new Date().getFullYear();
   while (!isLeapYear(nextLeapYear)) {
     nextLeapYear++;
   }
