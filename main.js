@@ -8,6 +8,10 @@ const isCurrentYearLeap = () => {
   return isLeapYear(new Date().getFullYear());
 };
 
+const getDateOfLastDayOfFebruary = (year) => {
+  return new Date(year, 1, isLeapYear(year) ? 29 : 28);
+};
+
 const getNextLeapYear = (year) => {
   let nextLeapYear = year || new Date().getFullYear();
   while (!isLeapYear(nextLeapYear)) {
@@ -24,4 +28,10 @@ const getPreviousLeapYear = (year) => {
   return previousLeapYear;
 };
 
-export { isLeapYear, isCurrentYearLeap, getNextLeapYear, getPreviousLeapYear };
+export {
+  isLeapYear,
+  isCurrentYearLeap,
+  getNextLeapYear,
+  getPreviousLeapYear,
+  getDateOfLastDayOfFebruary,
+};
