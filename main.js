@@ -16,4 +16,12 @@ const getNextLeapYear = (year) => {
   return nextLeapYear;
 };
 
-export { isLeapYear, isCurrentYearLeap, getNextLeapYear };
+const getPreviousLeapYear = (year) => {
+  let previousLeapYear = year || new Date().getFullYear();
+  while (!isLeapYear(previousLeapYear)) {
+    previousLeapYear--;
+  }
+  return previousLeapYear;
+};
+
+export { isLeapYear, isCurrentYearLeap, getNextLeapYear, getPreviousLeapYear };
