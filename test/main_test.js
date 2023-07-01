@@ -6,6 +6,7 @@ import {
   getPreviousLeapYear,
   getDateOfLastDayOfFebruary,
 } from "./../main.js";
+import { getExpectedNextLeapYear } from "./helpers/test_helper.js";
 
 test("return true if it is a leap year", (t) => {
   assert.strictEqual(isLeapYear(2000), true);
@@ -37,9 +38,8 @@ test("return the current year if it is a leap year", (t) => {
   assert.strictEqual(getNextLeapYear(2004), 2004);
 });
 
-// FIXME: Using the method which is the subject of this test to get the expected value.
 test("return the next leap year from current year if year is not specified", (t) => {
-  const nextLeapYear = getNextLeapYear(new Date().getFullYear());
+  const nextLeapYear = getExpectedNextLeapYear();
   assert.strictEqual(getNextLeapYear(), nextLeapYear);
 });
 
