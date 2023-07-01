@@ -6,7 +6,10 @@ import {
   getPreviousLeapYear,
   getDateOfLastDayOfFebruary,
 } from "./../main.js";
-import { getExpectedNextLeapYear } from "./helpers/test_helper.js";
+import {
+  getExpectedNextLeapYear,
+  getExpectedPreviousLeapYear,
+} from "./helpers/test_helper.js";
 
 test("return true if it is a leap year", (t) => {
   assert.strictEqual(isLeapYear(2000), true);
@@ -47,9 +50,7 @@ test("return the previous leap year from the specified year", (t) => {
   assert.strictEqual(getPreviousLeapYear(1999), 1996);
 });
 
-// FIXME: This test fails if the current year gets past 2021.
-// One of the ideas is that having a set of leap years in a separate file,
-// and then using that file to get the expected value.
 test("return the previous leap year from current year if year is not specified", (t) => {
-  assert.strictEqual(getPreviousLeapYear(), 2020);
+  const previousLeapYear = getExpectedPreviousLeapYear();
+  assert.strictEqual(getPreviousLeapYear(), previousLeapYear);
 });

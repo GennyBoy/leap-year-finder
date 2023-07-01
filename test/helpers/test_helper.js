@@ -18,6 +18,9 @@ const getLeapYears = () => {
   return leapYears.leap_years;
 };
 
+// It returns the next leap year from the current year
+// even if the current year is a leap year.
+// For example, if the current year is 2020, it returns 2024.
 const getExpectedNextLeapYear = () => {
   const currentYear = getCurrentYear();
   const nextLeapYear = getLeapYears().find(
@@ -26,6 +29,15 @@ const getExpectedNextLeapYear = () => {
   return parseInt(nextLeapYear);
 };
 
-// TODO: Implement getExpectedPreviousLeapYear() method.
+// It returns the previous leap year from the current year
+// even if the current year is a leap year.
+// For example, if the current year is 2020, it returns 2016.
+const getExpectedPreviousLeapYear = () => {
+  const currentYear = getCurrentYear();
+  const previousLeapYear = getLeapYears()
+    .reverse()
+    .find((leapYear) => leapYear < currentYear);
+  return parseInt(previousLeapYear);
+};
 
-export { getExpectedNextLeapYear };
+export { getExpectedNextLeapYear, getExpectedPreviousLeapYear };
