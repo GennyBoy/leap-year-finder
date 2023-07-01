@@ -32,6 +32,10 @@ const getDateForNextLeapYearLastDayOfFebruary = () => {
   return getDateForLastDayOfFebruary(getNextLeapYear());
 };
 
+const getDateForPreviousLeapYearLastDayOfFebruary = () => {
+  return getDateForLastDayOfFebruary(getPreviousLeapYear());
+};
+
 export {
   isLeapYear,
   isCurrentYearLeap,
@@ -39,4 +43,5 @@ export {
   getPreviousLeapYear,
   getDateForLastDayOfFebruary,
   getDateForNextLeapYearLastDayOfFebruary,
+  getDateForPreviousLeapYearLastDayOfFebruary,
 };

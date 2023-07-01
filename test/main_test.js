@@ -6,6 +6,7 @@ import {
   getPreviousLeapYear,
   getDateForLastDayOfFebruary,
   getDateForNextLeapYearLastDayOfFebruary,
+  getDateForPreviousLeapYearLastDayOfFebruary,
 } from "./../main.js";
 import {
   getExpectedNextLeapYear,
@@ -38,6 +39,13 @@ test("return date object of 29th of February for the next leap year", (t) => {
   assert.strictEqual(
     Date.parse(getDateForNextLeapYearLastDayOfFebruary()),
     Date.parse(new Date(getExpectedNextLeapYear(), 1, 29))
+  );
+});
+
+test("return date object of 29th of February for the previous leap year", (t) => {
+  assert.strictEqual(
+    Date.parse(getDateForPreviousLeapYearLastDayOfFebruary()),
+    Date.parse(new Date(getExpectedPreviousLeapYear(), 1, 29))
   );
 });
 
