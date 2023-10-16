@@ -42,6 +42,20 @@ const getPreviousLeapYear = (year) => {
   return previousLeapYear;
 };
 
+const getPreviousLeapYears = (number, year = new Date().getFullYear()) => {
+  let count = 0;
+  let yearIndex = year;
+  let leapYears = [];
+  while (count < number) {
+    if (isLeapYear(yearIndex)) {
+      leapYears.push(yearIndex);
+      count++;
+    }
+    yearIndex--;
+  }
+  return leapYears;
+};
+
 const getDateForNextLeapYearLastDayOfFebruary = () => {
   return getDateForLastDayOfFebruary(getNextLeapYear());
 };
@@ -59,4 +73,5 @@ export {
   getDateForNextLeapYearLastDayOfFebruary,
   getDateForPreviousLeapYearLastDayOfFebruary,
   getNextLeapYears,
+  getPreviousLeapYears,
 };

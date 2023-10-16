@@ -8,6 +8,7 @@ import {
   getDateForNextLeapYearLastDayOfFebruary,
   getDateForPreviousLeapYearLastDayOfFebruary,
   getNextLeapYears,
+  getPreviousLeapYears,
 } from "./../main.js";
 import {
   getExpectedNextLeapYear,
@@ -72,9 +73,18 @@ test("return the previous leap year from current year if year is not specified",
   assert.strictEqual(getPreviousLeapYear(), previousLeapYear);
 });
 
-test("return the specified number of leap years from the current year", (t) => {
+test("return the specified number of next leap years from the current year", (t) => {
   // loopを回してそれぞれの要素が同じか確認する方法も考えたが、あまりテストコードにロジックを含めたくなかったので文字列比較にした
+  // この書き方だと配列内の要素の順番が変わると落ちる
   const actual = JSON.stringify(getNextLeapYears(5));
   const expected = JSON.stringify([2024, 2028, 2032, 2036, 2040]);
+  assert.strictEqual(actual, expected);
+});
+
+test("return the specified number of previous leap years from the current year", (t) => {
+  // loopを回してそれぞれの要素が同じか確認する方法も考えたが、あまりテストコードにロジックを含めたくなかったので文字列比較にした
+  // この書き方だと配列内の要素の順番が変わると落ちる
+  const actual = JSON.stringify(getPreviousLeapYears(5));
+  const expected = JSON.stringify([2020, 2016, 2012, 2008, 2004]);
   assert.strictEqual(actual, expected);
 });
