@@ -73,7 +73,7 @@ test("return the previous leap year from current year if year is not specified",
   assert.strictEqual(getPreviousLeapYear(), previousLeapYear);
 });
 
-test("return the specified number of next leap years from the current year", (t) => {
+test("return the specified number of next leap years from the current year if year is not specified", (t) => {
   // loopを回してそれぞれの要素が同じか確認する方法も考えたが、あまりテストコードにロジックを含めたくなかったので文字列比較にした
   // この書き方だと配列内の要素の順番が変わると落ちる
   const actual = JSON.stringify(getNextLeapYears(5));
@@ -81,10 +81,24 @@ test("return the specified number of next leap years from the current year", (t)
   assert.strictEqual(actual, expected);
 });
 
-test("return the specified number of previous leap years from the current year", (t) => {
+test("return the specified number of previous leap years from the current year if year is not specified", (t) => {
   // loopを回してそれぞれの要素が同じか確認する方法も考えたが、あまりテストコードにロジックを含めたくなかったので文字列比較にした
   // この書き方だと配列内の要素の順番が変わると落ちる
   const actual = JSON.stringify(getPreviousLeapYears(5));
   const expected = JSON.stringify([2020, 2016, 2012, 2008, 2004]);
+  assert.strictEqual(actual, expected);
+});
+
+test("return the specified number of next leap years from the specified year", (t) => {
+  const actual = JSON.stringify(getNextLeapYears(3, 1895));
+  const expected = JSON.stringify([1896, 1904, 1908]);
+  assert.strictEqual(actual, expected);
+});
+
+test("return the specified number of previous leap years from the specified year", (t) => {
+  const actual = JSON.stringify(getPreviousLeapYears(10, 1924));
+  const expected = JSON.stringify([
+    1924, 1920, 1916, 1912, 1908, 1904, 1896, 1892, 1888, 1884,
+  ]);
   assert.strictEqual(actual, expected);
 });
