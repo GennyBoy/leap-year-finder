@@ -29,6 +29,16 @@ const getExpectedNextLeapYear = () => {
   return parseInt(nextLeapYear);
 };
 
+const getExpectedNextLeapYears = (number, year = getCurrentYear()) => {
+  const yearIndex = year;
+  const leapYears = getLeapYears();
+  const nextLeapYear = leapYears.find((leapYear) => leapYear > yearIndex);
+  const startIndex = leapYears.indexOf(nextLeapYear);
+  return leapYears
+    .slice(startIndex, startIndex + number)
+    .map((x) => parseInt(x));
+};
+
 // It returns the previous leap year from the current year
 // even if the current year is a leap year.
 // For example, if the current year is 2020, it returns 2016.
@@ -40,4 +50,21 @@ const getExpectedPreviousLeapYear = () => {
   return parseInt(previousLeapYear);
 };
 
-export { getExpectedNextLeapYear, getExpectedPreviousLeapYear };
+const getExpectedPreviousLeapYears = (number, year = getCurrentYear()) => {
+  const yearIndex = year;
+  const reversedLeapYears = getLeapYears().reverse();
+  const previousLeapYear = reversedLeapYears.find(
+    (leapYear) => leapYear < yearIndex
+  );
+  const startIndex = reversedLeapYears.indexOf(previousLeapYear);
+  return reversedLeapYears
+    .slice(startIndex, startIndex + number)
+    .map((x) => parseInt(x));
+};
+
+export {
+  getExpectedNextLeapYear,
+  getExpectedPreviousLeapYear,
+  getExpectedNextLeapYears,
+  getExpectedPreviousLeapYears,
+};
