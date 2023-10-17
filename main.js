@@ -10,14 +10,18 @@ const isCurrentYearLeap = () => {
   return isLeapYear(new Date().getFullYear());
 };
 
-const getDateForLastDayOfFebruary = (year) => {
-  return new Date(year, 1, isLeapYear(year) ? 29 : 28);
-};
-
 const getNextLeapYear = (year = new Date().getFullYear()) => {
   let yearIndex = parseInt(year) + 1;
   while (!isLeapYear(yearIndex)) {
     yearIndex++;
+  }
+  return yearIndex;
+};
+
+const getPreviousLeapYear = (year = new Date().getFullYear()) => {
+  let yearIndex = parseInt(year) - 1;
+  while (!isLeapYear(yearIndex)) {
+    yearIndex--;
   }
   return yearIndex;
 };
@@ -36,14 +40,6 @@ const getNextLeapYears = (number, year = new Date().getFullYear()) => {
   return leapYears;
 };
 
-const getPreviousLeapYear = (year = new Date().getFullYear()) => {
-  let yearIndex = parseInt(year) - 1;
-  while (!isLeapYear(yearIndex)) {
-    yearIndex--;
-  }
-  return yearIndex;
-};
-
 const getPreviousLeapYears = (number, year = new Date().getFullYear()) => {
   let count = 0;
   let yearIndex = parseInt(year) - 1;
@@ -56,6 +52,10 @@ const getPreviousLeapYears = (number, year = new Date().getFullYear()) => {
     yearIndex--;
   }
   return leapYears;
+};
+
+const getDateForLastDayOfFebruary = (year) => {
+  return new Date(year, 1, isLeapYear(year) ? 29 : 28);
 };
 
 const getDateForNextLeapYearLastDayOfFebruary = () => {
