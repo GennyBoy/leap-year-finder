@@ -101,7 +101,7 @@ test("return the specified number of next leap years from the specified year", (
   assert.strictEqual(actual, expected);
 });
 
-test("return the specified number of next leap years from the specified year even if it is a leap year", (t) => {
+test("return the specified number of next leap years from the specified year when the specified year is a leap year", (t) => {
   const actual = JSON.stringify(getNextLeapYears(3, 1896));
   const expected = JSON.stringify([1904, 1908, 1912]);
   assert.strictEqual(actual, expected);
@@ -112,5 +112,11 @@ test("return the specified number of previous leap years from the specified year
   const expected = JSON.stringify([
     1920, 1916, 1912, 1908, 1904, 1896, 1892, 1888, 1884, 1880,
   ]);
+  assert.strictEqual(actual, expected);
+});
+
+test("return the specified number of previous leap years from the specified year when the specified year is a leap year", (t) => {
+  const actual = JSON.stringify(getPreviousLeapYears(3, 1896));
+  const expected = JSON.stringify([1892, 1888, 1884]);
   assert.strictEqual(actual, expected);
 });
