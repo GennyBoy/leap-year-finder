@@ -24,11 +24,11 @@ const getPreviousLeapYear = (year = new Date().getFullYear()) => {
   return yearIndex;
 };
 
-const getNextLeapYears = (number, year = new Date().getFullYear()) => {
+const getNextLeapYears = (numberOfYears, year = new Date().getFullYear()) => {
   let count = 0;
   let yearIndex = parseInt(year) + 1;
   let leapYears = [];
-  while (count < number) {
+  while (count < numberOfYears) {
     if (isLeapYear(yearIndex)) {
       leapYears.push(yearIndex);
       count++;
@@ -38,11 +38,14 @@ const getNextLeapYears = (number, year = new Date().getFullYear()) => {
   return leapYears;
 };
 
-const getPreviousLeapYears = (number, year = new Date().getFullYear()) => {
+const getPreviousLeapYears = (
+  numberOfYears,
+  year = new Date().getFullYear()
+) => {
   let count = 0;
   let yearIndex = parseInt(year) - 1;
   let leapYears = [];
-  while (count < number) {
+  while (count < numberOfYears) {
     if (isLeapYear(yearIndex)) {
       leapYears.push(yearIndex);
       count++;
