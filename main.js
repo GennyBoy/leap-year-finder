@@ -52,7 +52,7 @@ const getPreviousLeapYears = (number, year = new Date().getFullYear()) => {
   return leapYears;
 };
 
-const getDateForLastDayOfFebruary = (year) => {
+const getDateForLastDayOfFebruary = (year = new Date().getFullYear()) => {
   return new Date(year, 1, isLeapYear(year) ? 29 : 28);
 };
 
