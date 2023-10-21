@@ -1,6 +1,6 @@
 #! /usr/bin/env node
 
-const isLeapYear = (year) => {
+const isLeapYear = (year = new Date()) => {
   const specifiedYear = parseYear(year);
   return (
     specifiedYear % 4 === 0 &&
@@ -9,7 +9,7 @@ const isLeapYear = (year) => {
 };
 
 const isCurrentYearLeap = () => {
-  return isLeapYear(new Date().getFullYear());
+  return isLeapYear();
 };
 
 const getNextLeapYear = (year = new Date()) => {
