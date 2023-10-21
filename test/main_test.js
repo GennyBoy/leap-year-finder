@@ -25,6 +25,15 @@ test("return false if it is not a leap year", (t) => {
   assert.strictEqual(isLeapYear(2001), false);
 });
 
+test("raises a TypeError if a given parameter is neither a number or Date object", (t) => {
+  try {
+    isLeapYear("This is a String");
+  } catch (e) {
+    assert(e instanceof TypeError);
+    assert.strictEqual(e.message, "Year must be a number or Date object");
+  }
+});
+
 test("return date object of 29th of February for the specified leap year", (t) => {
   assert.strictEqual(
     Date.parse(getDateForLastDayOfFebruary(2000)),
