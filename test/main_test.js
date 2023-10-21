@@ -89,16 +89,18 @@ test("return the previous leap year from current year if year is not specified",
 });
 
 test("return the specified number of next leap years from the current year if year is not specified", (t) => {
-  // loopを回してそれぞれの要素が同じか確認する方法も考えたが、あまりテストコードにロジックを含めたくなかったので文字列比較にした
-  // この書き方だと配列内の要素の順番が変わると落ちる
+  // I considered a method of looping through and checking if each element is the same,
+  // but I didn't want to include too much logic in the test code, so I used string comparison instead.
+  // With this approach, if the order of elements in the array changes, the test will fail.
   const actual = JSON.stringify(getNextLeapYears(5));
   const expected = JSON.stringify(getExpectedNextLeapYears(5));
   assert.strictEqual(actual, expected);
 });
 
 test("return the specified number of previous leap years from the current year if year is not specified", (t) => {
-  // loopを回してそれぞれの要素が同じか確認する方法も考えたが、あまりテストコードにロジックを含めたくなかったので文字列比較にした
-  // この書き方だと配列内の要素の順番が変わると落ちる
+  // I considered a method of looping through and checking if each element is the same,
+  // but I didn't want to include too much logic in the test code, so I used string comparison instead.
+  // With this approach, if the order of elements in the array changes, the test will fail.
   const actual = JSON.stringify(getPreviousLeapYears(5));
   const expected = JSON.stringify(getExpectedPreviousLeapYears(5));
   assert.strictEqual(actual, expected);
