@@ -32,7 +32,8 @@ const getNextLeapYears = (numberOfYears, year = new Date()) => {
   let count = 0;
   let yearIndex = parseYear(year) + 1;
   let leapYears = [];
-  while (count < numberOfYears) {
+  const givenNumberOfYears = validateNumberOfYears(numberOfYears);
+  while (count < givenNumberOfYears) {
     if (isLeapYear(yearIndex)) {
       leapYears.push(yearIndex);
       count++;
@@ -46,7 +47,8 @@ const getPreviousLeapYears = (numberOfYears, year = new Date()) => {
   let count = 0;
   let yearIndex = parseYear(year) - 1;
   let leapYears = [];
-  while (count < numberOfYears) {
+  const givenNumberOfYears = validateNumberOfYears(numberOfYears);
+  while (count < givenNumberOfYears) {
     if (isLeapYear(yearIndex)) {
       leapYears.push(yearIndex);
       count++;
@@ -76,6 +78,16 @@ const parseYear = (year) => {
     return year.getFullYear();
   } else {
     throw new TypeError("Year must be a number or Date object");
+  }
+};
+
+const validateNumberOfYears = (number) => {
+  if (typeof number !== "number") {
+    throw new TypeError("NumberOfYears must be a number");
+  } else if (number > 10 || number <= 0) {
+    throw new Error("NumberOfYears must be in range 1-10");
+  } else {
+    return number;
   }
 };
 

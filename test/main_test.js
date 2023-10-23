@@ -131,3 +131,30 @@ test("return the specified number of previous leap years from the specified year
   const expected = JSON.stringify([1892, 1888, 1884]);
   assert.strictEqual(actual, expected);
 });
+
+test("raises a TypeError if a given numberOfYears is not a number", (t) => {
+  try {
+    getNextLeapYears("This is a String", 1896);
+  } catch (e) {
+    assert(e instanceof TypeError);
+    assert.strictEqual(e.message, "NumberOfYears must be a number");
+  }
+});
+
+test("raises a Error if a given numberOfYears is over than ten", (t) => {
+  try {
+    getNextLeapYears(11, 1896);
+  } catch (e) {
+    assert(e instanceof Error);
+    assert.strictEqual(e.message, "NumberOfYears must be in range 1-10");
+  }
+});
+
+test("raises a Error if a given numberOfYears is less than 1", (t) => {
+  try {
+    getPreviousLeapYears(0, 1896);
+  } catch (e) {
+    assert(e instanceof Error);
+    assert.strictEqual(e.message, "NumberOfYears must be in range 1-10");
+  }
+});
