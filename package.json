@@ -1,33 +1,33 @@
 {
-  "type": "module",
+  "name": "@gennyboy/leap-year-finder",
+  "description": "A library with handy methods for identifying leap years or determining if a given year is a leap year.",
+  "version": "1.0.0",
+  "author": "Gen Kudo <tassie2856@gmail.com>",
+  "bugs": {
+    "url": "https://github.com/GennyBoy/leap-year-finder/issues"
+  },
   "devDependencies": {
     "eslint": "^8.42.0",
     "eslint-config-prettier": "^8.8.0",
     "prettier": "2.8.8"
   },
-  "name": "@gennyboy/leap-year-finder",
-  "description": "A library with handy methods for identifying leap years or determining if a given year is a leap year.",
-  "version": "1.0.0",
-  "main": "main.js",
   "directories": {
     "test": "test"
   },
-  "scripts": {
-    "test": "node --test"
-  },
+  "homepage": "https://github.com/GennyBoy/leap-year-finder#readme",
+  "keywords": [
+    "date",
+    "leap",
+    "year"
+  ],
+  "license": "MIT",
+  "main": "main.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/GennyBoy/leap-year-finder.git"
   },
-  "keywords": [
-    "leap",
-    "year",
-    "date"
-  ],
-  "author": "Gen Kudo <tassie2856@gmail.com>",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/GennyBoy/leap-year-finder/issues"
+  "scripts": {
+    "test": "node --test"
   },
-  "homepage": "https://github.com/GennyBoy/leap-year-finder#readme"
+  "type": "module"
 }
