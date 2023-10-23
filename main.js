@@ -71,10 +71,8 @@ const getDateForPreviousLeapYearLastDayOfFebruary = () => {
 
 const parseYear = (year) => {
   if (typeof year === "number") {
-    console.log("This is number");
     return year;
   } else if (year instanceof Date) {
-    console.log("This is Date");
     return year.getFullYear();
   } else {
     throw new TypeError("Year must be a number or Date object");
