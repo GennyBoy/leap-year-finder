@@ -2,7 +2,7 @@
   "name": "@gennyboy/leap-year-finder",
   "description": "A library with handy methods for identifying leap years or determining if a given year is a leap year.",
   "version": "1.0.0",
-  "author": "Gen Kudo <tassie2856@gmail.com>",
+  "author": "GennyBoy",
   "bugs": {
     "url": "https://github.com/GennyBoy/leap-year-finder/issues"
   },
