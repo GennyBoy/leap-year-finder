@@ -14,6 +14,9 @@
   "directories": {
     "test": "test"
   },
+  "files": [
+    "main.js"
+  ],
   "homepage": "https://github.com/GennyBoy/leap-year-finder#readme",
   "keywords": [
     "date",
